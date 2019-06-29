@@ -92,7 +92,7 @@ int main(int argc, char **argv)
 
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, NULL);
 
-    if (SSL_CTX_load_verify_locations(ctx, "ca.pem", NULL) <= 0)
+    if (SSL_CTX_load_verify_locations(ctx, "cacert.pem", NULL) <= 0)
     {
         ERR_print_errors_fp(stdout);
         exit(1);

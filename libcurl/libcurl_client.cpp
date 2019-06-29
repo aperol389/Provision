@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     {
         printf("curl_easy_init() success.\n");
 
-        curl_easy_setopt(pCurl, CURLOPT_URL, "aperolServer.com");
+        curl_easy_setopt(pCurl, CURLOPT_URL, "172.21.118.136");
 
         curl_easy_setopt(pCurl, CURLOPT_TIMEOUT, 8);
 
