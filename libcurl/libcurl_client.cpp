@@ -4,10 +4,10 @@
 #include <stdlib.h>
 #include <curl/curl.h>
 
-#define CA_FILE "CA.pem"
-#define CLIENT_CERT_FILE "client.pem"
+#define CA_FILE "cacert.pem"
+#define CLIENT_CERT_FILE "clientCA.pem"
 #define CLIENT_CERT_TYPE "PEM"
-#define CLIENT_KEY "clientKey.pem"
+#define CLIENT_KEY "clientkey.pem"
 #define CLIENT_KEY_TYPE "PEM"
 #define CLIENT_KEY_PASSWORD "1234"
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     {
         printf("curl_easy_init() success.\n");
 
-        curl_easy_setopt(pCurl, CURLOPT_URL, "https://eed2.com/");
+        curl_easy_setopt(pCurl, CURLOPT_URL, "aperolServer.com");
 
         curl_easy_setopt(pCurl, CURLOPT_TIMEOUT, 8);
 

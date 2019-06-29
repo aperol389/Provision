@@ -1,0 +1,13 @@
+Country Name: CN
+State or Province Name: BJ
+Locality Name: BJ
+Organization Name: poly
+Organization Unit Name: poly
+Common Name: aperol.com
+Email Address: aperol.chen@poly.com
+
+Root ca key: cakey.pem
+Root CA: ca.pem
+
+Server private key: serverkey.pem
+server request file: server.csr // aperolServer.com
