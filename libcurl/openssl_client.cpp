@@ -21,19 +21,19 @@ void ShowCerts(SSL * ssl)
     // SSL_get_verify_result()是重点，SSL_CTX_set_verify()只是配置启不启用并没有执行认证，调用该函数才会真证进行证书认证
     // 如果验证不通过，那么程序抛出异常中止连接
     if(SSL_get_verify_result(ssl) == X509_V_OK){
-        printf("证书验证通过\n");
+        printf("verify success.\n");
     }
     if (cert != NULL) {
-        printf("数字证书信息:\n");
+        printf("informations:\n");
         line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
-        printf("证书: %s\n", line);
+        printf("certification: %s\n", line);
         free(line);
         line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
-        printf("颁发者: %s\n", line);
+        printf("issuer: %s\n", line);
         free(line);
         X509_free(cert);
     } else
-        printf("无证书信息！\n");
+        printf("no certification！\n");
 }
 
 int main(int argc, char **argv)
@@ -116,7 +116,10 @@ int main(int argc, char **argv)
     SSL_set_fd(ssl, sockfd);
     /* 建立 SSL 连接 */
     if (SSL_connect(ssl) == -1)
+    {
+        printf("SSL connect failed.\n");
         ERR_print_errors_fp(stderr);
+    }
     else {
         printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
         ShowCerts(ssl);

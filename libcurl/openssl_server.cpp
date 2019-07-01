@@ -18,6 +18,7 @@
 
 void ShowCerts(SSL * ssl)
 {
+    printf("enter ShowCerts().\n");
     X509 *cert;
     char *line;
 
@@ -191,5 +192,5 @@ int main(int argc, char **argv)
 
     SSL_CTX_free(ctx);
 
-    return 0;
+    return 1;
 }
